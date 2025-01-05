@@ -1,21 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
-  <am:AuthoringMetadata>
-    <am:CreatedBy>
-      <am:Name>SSDTRS</am:Name>
-      <am:Version>17.7.34003.232</am:Version>
-    </am:CreatedBy>
-    <am:UpdatedBy>
-      <am:Name>SSDTRS</am:Name>
-      <am:Version>17.7.34003.232</am:Version>
-    </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-01-02T08:27:28.0064751Z</am:LastModifiedTimestamp>
-  </am:AuthoringMetadata>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
   <DataSources>
     <DataSource Name="DataSource1">
-      <DataSourceReference>MOTAEGYPT</DataSourceReference>
+      <DataSourceReference>/DataSource/MOTAEGYPT</DataSourceReference>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>6702de4a-dc2e-4982-9d6e-569a807eb3a6</rd:DataSourceID>
     </DataSource>
@@ -43,8 +32,8 @@
 select 
 FacilityName.B1_CHECKLIST_COMMENT FacilityName
 ,b.b1_alt_id
-,LicenseIssueDate.B1_CHECKLIST_COMMENT LicenseIssueDate
-,LicenseExpirationDate.B1_CHECKLIST_COMMENT LicenseExpirationDate
+,format(cast(LicenseIssueDate.B1_CHECKLIST_COMMENT as date),'dd/MM/yyyy') LicenseIssueDate
+,format(cast(LicenseExpirationDate.B1_CHECKLIST_COMMENT as date),'dd/MM/yyyy') LicenseExpirationDate
 ,targetgroup.BIZDOMAIN_VALUE targetgroup
 ,case when Classified.B1_CHECKLIST_COMMENT = 'Yes' then  'Yes' else 'Yes' end Classified
 ,ProjectLocation.B1_CHECKLIST_COMMENT ProjectLocation
@@ -1047,8 +1036,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>3.82879cm</Top>
-            <Left>7.98465cm</Left>
+            <Top>5.08769cm</Top>
+            <Left>8.01342cm</Left>
             <Height>0.64556cm</Height>
             <Width>5.93132cm</Width>
             <ZIndex>2</ZIndex>
@@ -1078,8 +1067,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>3.82879cm</Top>
-            <Left>1.69937cm</Left>
+            <Top>5.08769cm</Top>
+            <Left>1.72814cm</Left>
             <Height>0.64556cm</Height>
             <Width>4.64489cm</Width>
             <ZIndex>3</ZIndex>
@@ -1185,8 +1174,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.82879cm</Top>
-            <Left>13.95125cm</Left>
+            <Top>5.08769cm</Top>
+            <Left>13.98002cm</Left>
             <Height>0.64556cm</Height>
             <Width>4.14066cm</Width>
             <ZIndex>6</ZIndex>
@@ -1469,8 +1458,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>AccomodationDS</DataSetName>
-            <Top>6.96991cm</Top>
-            <Left>10.53259cm</Left>
+            <Top>8.22881cm</Top>
+            <Left>10.56136cm</Left>
             <Height>1.52014cm</Height>
             <Width>7.53914cm</Width>
             <ZIndex>9</ZIndex>
@@ -1502,8 +1491,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>13.94061cm</Top>
-            <Left>13.95125cm</Left>
+            <Top>15.19951cm</Top>
+            <Left>13.98002cm</Left>
             <Height>0.67056cm</Height>
             <Width>4.04953cm</Width>
             <ZIndex>10</ZIndex>
@@ -1535,8 +1524,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ResidencePermitExpiryDate</rd:DefaultName>
-            <Top>13.95825cm</Top>
-            <Left>10.27211cm</Left>
+            <Top>15.21715cm</Top>
+            <Left>10.30088cm</Left>
             <Height>0.65292cm</Height>
             <Width>3.67914cm</Width>
             <ZIndex>11</ZIndex>
@@ -1572,8 +1561,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>14.74346cm</Top>
-            <Left>12.59087cm</Left>
+            <Top>16.00236cm</Top>
+            <Left>12.61964cm</Left>
             <Height>0.62645cm</Height>
             <Width>5.38973cm</Width>
             <ZIndex>12</ZIndex>
@@ -1605,8 +1594,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>WorkPermitExpiryDate</rd:DefaultName>
-            <Top>14.74346cm</Top>
-            <Left>10.07715cm</Left>
+            <Top>16.00236cm</Top>
+            <Left>10.10592cm</Left>
             <Height>0.59172cm</Height>
             <Width>2.47844cm</Width>
             <ZIndex>13</ZIndex>
@@ -1642,8 +1631,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>14.70818cm</Top>
-            <Left>6.7411cm</Left>
+            <Top>15.96708cm</Top>
+            <Left>6.76987cm</Left>
             <Height>0.62645cm</Height>
             <Width>3.33606cm</Width>
             <ZIndex>14</ZIndex>
@@ -1675,8 +1664,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>WorkPermitExpiryDate</rd:DefaultName>
-            <Top>14.70818cm</Top>
-            <Left>4.25383cm</Left>
+            <Top>15.96708cm</Top>
+            <Left>4.2826cm</Left>
             <Height>0.59172cm</Height>
             <Width>2.47844cm</Width>
             <ZIndex>15</ZIndex>
@@ -1712,8 +1701,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>14.70818cm</Top>
-            <Left>2.90339cm</Left>
+            <Top>15.96708cm</Top>
+            <Left>2.93216cm</Left>
             <Height>0.62645cm</Height>
             <Width>1.31517cm</Width>
             <ZIndex>16</ZIndex>
@@ -1745,8 +1734,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ResidencePermitExpiryDate</rd:DefaultName>
-            <Top>14.70818cm</Top>
-            <Left>0.34697cm</Left>
+            <Top>15.96708cm</Top>
+            <Left>0.37574cm</Left>
             <Height>0.59172cm</Height>
             <Width>2.55642cm</Width>
             <ZIndex>17</ZIndex>
@@ -1833,8 +1822,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>16.57771cm</Top>
-            <Left>0.20201cm</Left>
+            <Top>17.83661cm</Top>
+            <Left>0.23078cm</Left>
             <Height>1.54112cm</Height>
             <Width>17.78719cm</Width>
             <ZIndex>18</ZIndex>
@@ -1900,8 +1889,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.82879cm</Top>
-            <Left>6.34425cm</Left>
+            <Top>5.08769cm</Top>
+            <Left>6.37302cm</Left>
             <Height>0.64556cm</Height>
             <Width>1.58495cm</Width>
             <ZIndex>20</ZIndex>
@@ -1938,8 +1927,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>15.63969cm</Top>
-            <Left>14.87123cm</Left>
+            <Top>16.89859cm</Top>
+            <Left>14.9cm</Left>
             <Height>0.71858cm</Height>
             <Width>3.0868cm</Width>
             <ZIndex>21</ZIndex>
@@ -1970,8 +1959,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>5.28574cm</Top>
-            <Left>6.34425cm</Left>
+            <Top>6.54464cm</Top>
+            <Left>6.37302cm</Left>
             <Height>0.64556cm</Height>
             <Width>9.10183cm</Width>
             <ZIndex>22</ZIndex>
@@ -2007,8 +1996,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>5.28574cm</Top>
-            <Left>15.44608cm</Left>
+            <Top>6.54464cm</Top>
+            <Left>15.47485cm</Left>
             <Height>0.64556cm</Height>
             <Width>2.62565cm</Width>
             <ZIndex>23</ZIndex>
@@ -2045,8 +2034,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>6.10769cm</Top>
-            <Left>6.34425cm</Left>
+            <Top>7.36659cm</Top>
+            <Left>6.37302cm</Left>
             <Height>0.64556cm</Height>
             <Width>1.58495cm</Width>
             <ZIndex>24</ZIndex>
@@ -2077,8 +2066,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>6.10769cm</Top>
-            <Left>10.82198cm</Left>
+            <Top>7.36659cm</Top>
+            <Left>10.85075cm</Left>
             <Height>0.64556cm</Height>
             <Width>3.47741cm</Width>
             <ZIndex>25</ZIndex>
@@ -2108,8 +2097,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>6.10769cm</Top>
-            <Left>1.69937cm</Left>
+            <Top>7.36659cm</Top>
+            <Left>1.72814cm</Left>
             <Height>0.64556cm</Height>
             <Width>4.64489cm</Width>
             <ZIndex>26</ZIndex>
@@ -2145,8 +2134,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>6.10769cm</Top>
-            <Left>14.30216cm</Left>
+            <Top>7.36659cm</Top>
+            <Left>14.33093cm</Left>
             <Height>0.64556cm</Height>
             <Width>3.76958cm</Width>
             <ZIndex>27</ZIndex>
@@ -2183,8 +2172,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>12.64436cm</Top>
-            <Left>6.49897cm</Left>
+            <Top>13.90326cm</Top>
+            <Left>6.52774cm</Left>
             <Height>0.77639cm</Height>
             <Width>1.46403cm</Width>
             <ZIndex>28</ZIndex>
@@ -2219,8 +2208,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ResidencePermitExpiryDate</rd:DefaultName>
-            <Top>12.64408cm</Top>
-            <Left>2.61773cm</Left>
+            <Top>13.90298cm</Top>
+            <Left>2.6465cm</Left>
             <Height>0.61764cm</Height>
             <Width>3.88124cm</Width>
             <ZIndex>29</ZIndex>
@@ -2254,8 +2243,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>WorkPermitExpiryDate</rd:DefaultName>
-            <Top>12.64408cm</Top>
-            <Left>8.06882cm</Left>
+            <Top>13.90298cm</Top>
+            <Left>8.09759cm</Left>
             <Height>0.81139cm</Height>
             <Width>5.49599cm</Width>
             <ZIndex>30</ZIndex>
@@ -2291,8 +2280,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>12.64408cm</Top>
-            <Left>13.60009cm</Left>
+            <Top>13.90298cm</Top>
+            <Left>13.62886cm</Left>
             <Height>0.82903cm</Height>
             <Width>4.40928cm</Width>
             <ZIndex>31</ZIndex>
@@ -2324,8 +2313,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.63969cm</Top>
-            <Left>0.34697cm</Left>
+            <Top>16.89859cm</Top>
+            <Left>0.37574cm</Left>
             <Height>0.71858cm</Height>
             <Width>14.56339cm</Width>
             <ZIndex>32</ZIndex>
@@ -2356,8 +2345,8 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>4.54491cm</Top>
-            <Left>7.95405cm</Left>
+            <Top>5.80381cm</Top>
+            <Left>7.98282cm</Left>
             <Height>0.64556cm</Height>
             <Width>7.01579cm</Width>
             <ZIndex>33</ZIndex>
@@ -2393,8 +2382,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>4.54491cm</Top>
-            <Left>15.07567cm</Left>
+            <Top>5.80381cm</Top>
+            <Left>15.10444cm</Left>
             <Height>0.64556cm</Height>
             <Width>2.98564cm</Width>
             <ZIndex>34</ZIndex>
@@ -3015,8 +3004,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>8.65391cm</Top>
-            <Left>1.7819cm</Left>
+            <Top>9.91281cm</Top>
+            <Left>1.81067cm</Left>
             <Height>3.70794cm</Height>
             <Width>16.31cm</Width>
             <ZIndex>38</ZIndex>
@@ -3121,9 +3110,9 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>19.09751cm</Top>
-            <Left>14.3625cm</Left>
-            <Height>0.89104cm</Height>
+            <Top>4.02026cm</Top>
+            <Left>5.89405cm</Left>
+            <Height>0.77211cm</Height>
             <Width>3.6267cm</Width>
             <ZIndex>41</ZIndex>
             <Style>
@@ -3159,8 +3148,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>18.15411cm</Top>
-            <Left>14.3625cm</Left>
+            <Top>4.02536cm</Top>
+            <Left>14.39127cm</Left>
             <Height>0.76701cm</Height>
             <Width>3.6267cm</Width>
             <ZIndex>42</ZIndex>
@@ -3192,8 +3181,8 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>WorkPermitExpiryDate</rd:DefaultName>
-            <Top>18.15411cm</Top>
-            <Left>9.59781cm</Left>
+            <Top>4.02536cm</Top>
+            <Left>9.62658cm</Left>
             <Height>0.76701cm</Height>
             <Width>4.69413cm</Width>
             <ZIndex>43</ZIndex>
@@ -3224,9 +3213,9 @@ AND SD_CHK_LV1='Y'</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ResidencePermitExpiryDate</rd:DefaultName>
-            <Top>19.09751cm</Top>
-            <Left>9.59781cm</Left>
-            <Height>0.89104cm</Height>
+            <Top>4.02026cm</Top>
+            <Left>1.12936cm</Left>
+            <Height>0.77211cm</Height>
             <Width>4.66591cm</Width>
             <ZIndex>44</ZIndex>
             <Style>
@@ -3504,7 +3493,7 @@ AND SD_CHK_LV1='Y'</CommandText>
           </Border>
         </Style>
       </Body>
-      <Width>7.13607in</Width>
+      <Width>13.51107in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -3528,7 +3517,7 @@ AND SD_CHK_LV1='Y'</CommandText>
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>HLFOL-2022-000008</Value>
+          <Value>HLFOL-2022-000003</Value>
         </Values>
       </DefaultValue>
       <Prompt>b1_alt_id</Prompt>
@@ -3536,12 +3525,22 @@ AND SD_CHK_LV1='Y'</CommandText>
     <ReportParameter Name="capid">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+        </Values>
+      </DefaultValue>
       <AllowBlank>true</AllowBlank>
       <Prompt>capid</Prompt>
     </ReportParameter>
     <ReportParameter Name="agencyid">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+        </Values>
+      </DefaultValue>
       <AllowBlank>true</AllowBlank>
       <Prompt>agencyid</Prompt>
     </ReportParameter>
@@ -6175,5 +6174,6 @@ jXgv7Ah5RxqiIT8hE4jfqYlabz6o1BW06Urvfkylr5iWKPD1vt0QGHj3K+FRV1V41FM3Ho8xwlRpDO1K
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportServerUrl>https://ssrs.mota.gov.eg/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>f25efa66-0a55-4fd6-8429-58b7d30b0726</rd:ReportID>
 </Report>
