@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-07T22:18:16.3655801Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-08T09:51:25.7076762Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
@@ -33,10 +33,10 @@
 
 
 select b.b1_alt_id,b.B1_PER_CATEGORY Category
-,licenseprof.B1_LICENSE_NBR licenseNbr
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_LICENSE_NBR ELSE licenseprof.B1_LICENSE_NBR END licenseNbr
 ,ISNULL(licenseprofManagement.B1_BUS_NAME,'') licenseprofManagement
-,licenseprof.B1_LICENSE_TYPE licenseType
-,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_BUS_NAME ELSE licenseprof.B1_BUS_NAME END OTENTITY
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_LICENSE_TYPE ELSE licenseprof.B1_LICENSE_TYPE END licenseType
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_BUS_NAME ELSE licenseprof.B1_BUS_NAME END licenseName
 , FacilityName.B1_CHECKLIST_COMMENT FacilityName
 ,targetgroup.BIZDOMAIN_VALUE targetgroup
 , case when Classified.B1_CHECKLIST_COMMENT = 'Yes' then  'Yes' else 'Yes' end Classified
@@ -503,10 +503,6 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
         </Field>
         <Field Name="targetgroup">
           <DataField>targetgroup</DataField>
-          <rd:UserDefined>true</rd:UserDefined>
-        </Field>
-        <Field Name="OTENTITY">
-          <DataField>OTENTITY</DataField>
           <rd:UserDefined>true</rd:UserDefined>
         </Field>
       </Fields>
@@ -2285,7 +2281,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!OTENTITY.Value, "Main_Query")</Value>
+                    <Value>=First(Fields!contactName.Value, "Main_Query")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -2517,7 +2513,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!OTENTITY.Value, "Main_Query")</Value>
+                    <Value>=First(Fields!licenseName.Value, "Main_Query")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
