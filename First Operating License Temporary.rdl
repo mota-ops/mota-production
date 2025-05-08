@@ -6,10 +6,10 @@
       <am:Version>17.7.34003.232</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
-      <am:Name>SSDTRS</am:Name>
-      <am:Version>17.11.35431.28</am:Version>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-12-25T09:20:40.4491705Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-07T22:18:16.3655801Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
@@ -36,7 +36,7 @@ select b.b1_alt_id,b.B1_PER_CATEGORY Category
 ,licenseprof.B1_LICENSE_NBR licenseNbr
 ,ISNULL(licenseprofManagement.B1_BUS_NAME,'') licenseprofManagement
 ,licenseprof.B1_LICENSE_TYPE licenseType
-,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN TenantEntityName.B1_CHECKLIST_COMMENT ELSE licenseprof.B1_BUS_NAME END licenseName
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_BUS_NAME ELSE licenseprof.B1_BUS_NAME END OTENTITY
 , FacilityName.B1_CHECKLIST_COMMENT FacilityName
 ,targetgroup.BIZDOMAIN_VALUE targetgroup
 , case when Classified.B1_CHECKLIST_COMMENT = 'Yes' then  'Yes' else 'Yes' end Classified
@@ -142,6 +142,13 @@ and licenseprofManagement.B1_PER_ID1    =B.B1_PER_ID1
 and licenseprofManagement.B1_PER_ID2    =B.B1_PER_ID2
 and licenseprofManagement.B1_PER_ID3    =B.B1_PER_ID3
 and licenseprofManagement.B1_LICENSE_TYPE='Management Company'
+
+LEFT JOIN B3CONTRA licenseprofTenant
+on  licenseprofTenant.serv_prov_code=B.serv_prov_code
+and licenseprofTenant.B1_PER_ID1=B.B1_PER_ID1
+and licenseprofTenant.B1_PER_ID2=B.B1_PER_ID2
+and licenseprofTenant.B1_PER_ID3=B.B1_PER_ID3
+and licenseprofTenant.B1_LICENSE_TYPE='Tenant Company'
 
 LEFT JOIN BCHCKBOX FacilityName
 on FacilityName.serv_prov_code=B.serv_prov_code
@@ -496,6 +503,10 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
         </Field>
         <Field Name="targetgroup">
           <DataField>targetgroup</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="OTENTITY">
+          <DataField>OTENTITY</DataField>
           <rd:UserDefined>true</rd:UserDefined>
         </Field>
       </Fields>
@@ -2274,7 +2285,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!licenseName.Value, "Main_Query")</Value>
+                    <Value>=First(Fields!OTENTITY.Value, "Main_Query")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -2506,7 +2517,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!contactName.Value, "Main_Query")</Value>
+                    <Value>=First(Fields!OTENTITY.Value, "Main_Query")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
