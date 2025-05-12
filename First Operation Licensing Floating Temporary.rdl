@@ -6,10 +6,10 @@
       <am:Version>17.7.34003.232</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
-      <am:Name>SSDTRS</am:Name>
-      <am:Version>17.11.35431.28</am:Version>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-12-25T14:17:58.3306791Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-11T13:47:45.6636953Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
@@ -679,9 +679,9 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
           </QueryParameter>
         </QueryParameters>
         <CommandText>select b.b1_alt_id,b.B1_PER_CATEGORY Category
-,licenseprof.B1_LICENSE_NBR licenseNbr
-,licenseprof.B1_LICENSE_TYPE licenseType
-,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN TenantEntityName.B1_CHECKLIST_COMMENT ELSE licenseprof1.B1_BUS_NAME END licenseName
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_LICENSE_NBR ELSE licenseprof.B1_LICENSE_NBR END licenseNbr
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_LICENSE_TYPE ELSE licenseprof.B1_LICENSE_TYPE END licenseType
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_BUS_NAME ELSE licenseprof.B1_BUS_NAME END licenseName
 ,format(b.B1_FILE_DD,'yyyy/MM/dd') FileDate
 from b1permit b
 
@@ -692,6 +692,13 @@ AND  b.B1_PER_ID2       = Scalper.B1_PER_ID2
 AND  b.B1_PER_ID3       = Scalper.B1_PER_ID3
 and  Scalper.B1_CHECKBOX_DESC='Licensees character'
 and  Scalper.B1_CHECKLIST_COMMENT = 'Scalper'
+
+LEFT JOIN B3CONTRA licenseprofTenant
+on  licenseprofTenant.serv_prov_code=B.serv_prov_code
+and licenseprofTenant.B1_PER_ID1=B.B1_PER_ID1
+and licenseprofTenant.B1_PER_ID2=B.B1_PER_ID2
+and licenseprofTenant.B1_PER_ID3=B.B1_PER_ID3
+and licenseprofTenant.B1_LICENSE_TYPE='Tenant Company'
 
 LEFT JOIN B3CONTRA licenseprof1
 on  licenseprof1.serv_prov_code=B.serv_prov_code
