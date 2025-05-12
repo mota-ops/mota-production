@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2025-05-08T12:40:29.3138982Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
   <DataSources>
@@ -41,7 +52,7 @@ FacilityName.B1_CHECKLIST_COMMENT FacilityName
 ,licenseprof.B1_BUS_NAME  licenseName 
 ,licenseprof.b1_address1 licenseaddress
 ,licenseprof.b1_contact_type legal
-,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN TenantEntityName.B1_CHECKLIST_COMMENT ELSE licenseprof.B1_BUS_NAME END licenseprofTenant
+,CASE WHEN Scalper.B1_CHECKLIST_COMMENT = 'Scalper' THEN licenseprofTenant.B1_BUS_NAME ELSE licenseprof.B1_BUS_NAME END licenseprofTenant
 ,contact1.B1_FULL_NAME contactNamelegalrep
 ,contact1.B1_BIRTH_REGION contactaddress
 ,format(cast(StartOperationDate.b1_checklist_comment as date),'dd/MM/yyyy') StartOperationDate
@@ -2345,9 +2356,9 @@ AND SD_CHK_LV1='Y'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>6.23052cm</Top>
-            <Left>7.87151cm</Left>
-            <Height>0.64556cm</Height>
+            <Top>6.25344cm</Top>
+            <Left>8.4316cm</Left>
+            <Height>0.59972cm</Height>
             <Width>7.01579cm</Width>
             <ZIndex>33</ZIndex>
             <Style>
@@ -2383,9 +2394,9 @@ AND SD_CHK_LV1='Y'</CommandText>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>6.23052cm</Top>
-            <Left>14.99313cm</Left>
+            <Left>15.44608cm</Left>
             <Height>0.64556cm</Height>
-            <Width>2.98564cm</Width>
+            <Width>2.53269cm</Width>
             <ZIndex>34</ZIndex>
             <Style>
               <Border>
