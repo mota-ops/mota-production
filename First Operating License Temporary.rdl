@@ -6,10 +6,10 @@
       <am:Version>17.7.34003.232</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
-      <am:Name>MSRB</am:Name>
-      <am:Version>15.0.20283.0</am:Version>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.11.35327.3</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-08T09:51:25.7076762Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-13T09:08:18.2677159Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
@@ -2296,7 +2296,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
             <Width>7.9363cm</Width>
             <ZIndex>21</ZIndex>
             <Visibility>
-              <Hidden>=IIF(First(Fields!licenseType.Value, "Main_Query")="Owner Company",False,True)</Hidden>
+              <Hidden>true</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -2522,14 +2522,11 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>1.04951cm</Top>
-            <Left>6.76602cm</Left>
+            <Top>1.09361cm</Top>
+            <Left>5.73173cm</Left>
             <Height>0.62887cm</Height>
             <Width>8.2538cm</Width>
             <ZIndex>24</ZIndex>
-            <Visibility>
-              <Hidden>=IIF(First(Fields!licenseType.Value, "Main_Query")&lt;&gt;"Owner Company",False,True)</Hidden>
-            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
