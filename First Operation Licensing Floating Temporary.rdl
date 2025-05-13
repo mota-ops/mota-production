@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-05-11T13:47:45.6636953Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-05-13T09:40:51.5732184Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>1</InitialPageName>
@@ -2720,9 +2720,6 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
                 <Height>0.62887cm</Height>
                 <Width>10.05297cm</Width>
                 <ZIndex>1</ZIndex>
-                <Visibility>
-                  <Hidden>=IIF(First(Fields!licenseType.Value, "LICENSEPROF") = "Owner Company", False, True)</Hidden>
-                </Visibility>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2796,7 +2793,7 @@ AND    B.B1_APPL_CLASS  = 'COMPLETE'</CommandText>
                 <Width>9.18499cm</Width>
                 <ZIndex>3</ZIndex>
                 <Visibility>
-                  <Hidden>=IIF(First(Fields!licenseType.Value, "LICENSEPROF") &lt;&gt; "Owner Company", False, True)</Hidden>
+                  <Hidden>true</Hidden>
                 </Visibility>
                 <Style>
                   <Border>
